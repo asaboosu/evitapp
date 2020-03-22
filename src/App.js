@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './containers/Home';
-import Compra from './containers/Compra.js';
-import Factura from './containers/Factura';
-import Producto from './containers/Producto';
-import Oferta from './containers/Oferta';
-import NavigationBar from './containers/NavigationBar';
-import NoMatch from './containers/NoMatch';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Inicio from './SmartComponents/Inicio';
+import Compra from './SmartComponents/Compra';
+import Factura from './SmartComponents/Factura';
+import Producto from './SmartComponents/Producto';
+import Oferta from './SmartComponents/Oferta';
+import Navegador from './SmartComponents/Navegador';
+import NoMatch from './SmartComponents/NoMatch';
 
 class App extends Component {
 
 
-    const state = {
+    state = {
         logeado: false,
 
     }
@@ -19,11 +19,12 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavigationBar logeado={this.state.logeado}></NavigationBar>
                 <Router>
+                    <Navegador logeado={this.state.logeado}></Navegador>
+
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/Inicio" component={Home} />
+                        <Route exact path="/" component={Inicio} />
+                        <Route exact path="/inicio" component={Inicio} />
                         <Route path="/Compra" component={Compra} />
                         <Route path="/Factura" logeado={this.state.logeado} component={Factura} />
                         <Route exact path="/Producto/:id" logeado={this.state.logeado} component={Oferta} />
