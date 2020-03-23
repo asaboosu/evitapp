@@ -1,26 +1,22 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import InicioVista from './../Components/Inicio/InicioVista';
+import InicioVista from './../Components/Inicio/Menu';
 
 
 class Inicio extends React.Component {
 
-    constructor(props){
 
-    }
     
     handleChangeCompra(e){
         e.preventDefault();
-        //Code
-        let id = null;
-        (id) => {this.props.history.push('/compra/ver/' + id);}
+        
     }
 
     render(){
         return(
             <InicioVista
                 handleChangeCompra={this.handleChangeCompra}
-            />
+            ></InicioVista>
         );
     }
 }
