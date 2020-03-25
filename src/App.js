@@ -9,7 +9,6 @@ import Oferta from './SmartComponents/Oferta';
 import Navegador from './SmartComponents/Navegador';
 import NoMatch from './SmartComponents/NoMatch';
 
-import './'
 
 class App extends Component {
 
@@ -20,8 +19,6 @@ class App extends Component {
     }
 
     render() {
-        const $ = require('jquery')();
-
         return (
             <React.Fragment>
                 <Router>
@@ -29,6 +26,8 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={Inicio} />
                         <Route exact path="/inicio" component={Inicio} />
+                        <Route exact path="/compra" component={Compra} />
+                        <Route exact path="/compra/:tipoCompra" component={Compra} />
                     </Switch>
                 </Router>
             </React.Fragment>
