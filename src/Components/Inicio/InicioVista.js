@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AbrirCompra from './SmartComponents/AbrirCompra';
-import MenuCard from './SmartComponents/AbrirCompra';
+import MenuCard from './SmartComponents/MenuCard';
 
 import Carrito from './../../images/carrito.svg';
 import Factura from './../../images/libreta.svg';

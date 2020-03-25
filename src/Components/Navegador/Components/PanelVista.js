@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 
 const PanelVista = (props) => {
+    let history = useHistory();
     return (
         <div>
-            {props.esInicio &&
-                <Link to="/" className="btn btn-dark m-1"><h4>Volver Inicio <span role="img" aria-labelledby="caca">🏠</span> </h4></Link>
+            {!props.esInicio &&
+                <Link to="/" ><button onClick={() => {}} className="btn btn-dark m-1"><h4>Inicio <span role="img" aria-labelledby="caca">🏠</span> </h4></button></Link>
             }
             {props.existeAtras &&
-                <Link to={'/' + props.atras} onClick={props.handleVolverAtras} className="btn btn-dark m-1"><h4>Volver Atras ⤺</h4></Link>
+                <button onClick={ () => {history.goBack()}} className="btn btn-dark m-1"><h4>Atras ⤺</h4></button>
             }
-
             {props.estaLogeado &&
-                <Link to={'/deslogear'} className="btn btn-dark m-1"><h4>Deslogearse</h4></Link>
+                <Link to="/" onClick={props.handleDeslogear} ><button  className="btn btn-dark m-1"><h4>Deslogear</h4></button></Link>
             }
         </div>
     );

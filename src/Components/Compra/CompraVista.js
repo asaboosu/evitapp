@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 
 import Navegador from './SmartComponents/Navegador';
@@ -12,8 +12,7 @@ import Terminada from './SmartComponents/Terminada';
 
 const CompraVista = (props) => {
     return (
-        <div className=" m-2 border border-dark shadow shadow-lg  rounded rounded-lg">
-        <React.Fragment>
+        <BrowserRouter>
             <Navegador></Navegador>
             <Switch>
                 <Route exact path="/compra" component={TablaProceso}></Route>
@@ -23,8 +22,8 @@ const CompraVista = (props) => {
                 <Route exact path="/compra/pagar/:id" component={Pagar}></Route>
                 <Route exact path="/compra/ver/:id" component={Detalle}></Route>
             </Switch>
-        </React.Fragment>
-        </div>
+        </BrowserRouter>
+
     );
 }
 
