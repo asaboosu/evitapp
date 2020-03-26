@@ -6,12 +6,12 @@ const NavegadorVista = (props) => {
 
         <div className="row">
             {props.categorias.map(categoria =>
-                <div className="col-md-2 border border-dark ">
-                    <NavLink to={"/producto/ver/" + categoria.toLowerCase()} onClick={props.handleClick} className="p-0" ><h5 className="bg m-0 bg-danger">{categoria}</h5></NavLink>
+                <div className="col-md-1 border bg bg-danger border-dark ">
+                    <h5 className=""> <NavLink to={"/producto/ver/" + categoria.toLowerCase()} onClick={props.handleClick} >{categoria}</NavLink></h5>
                 </div>)
-
             }
-        </div>
+
+        </div >
     );
 }
 

@@ -6,7 +6,7 @@ class Navegador extends React.Component {
         return (
             <NavegadorVista
                 categorias={[
-                    "MENU",
+                    "Menu",
                     "Aguas",
                     "Cervezas",
                     "Vinos",

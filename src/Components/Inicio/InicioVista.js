@@ -25,7 +25,7 @@ const InicioVista = (props) => {
 
                 </div>
                 <div className="mx-auto col-sm-12 col-md-3">
-                    <MenuCard imagen={Producto} titulo="Productos" to="/producto/lista" />
+                    <MenuCard imagen={Producto} titulo="Productos" to="/producto" />
 
                 </div>
                 <div className="mx-auto col-sm-12 col-md-3">

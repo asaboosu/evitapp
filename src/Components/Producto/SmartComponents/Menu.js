@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuVista from './../Components/MenuVista'
+import MenuVista from './../Components/MenuVista';
 
 class Menu extends React.Component{
     render(){
