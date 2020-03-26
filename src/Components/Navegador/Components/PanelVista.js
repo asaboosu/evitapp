@@ -15,7 +15,7 @@ const PanelVista = (props) => {
                 <button onClick={ () => {history.goBack()}} className="btn btn-dark m-1"><h4>Atras ⤺</h4></button>
             }
             {props.estaLogeado &&
-                <Link to="/" onClick={props.handleDeslogear} ><button  className="btn btn-dark m-1"><h4>Deslogear</h4></button></Link>
+                <Link to="/" onClick={props.handleDeslogear}><button  onClick={() => (1)} className="btn btn-dark m-1"><h4>Deslogear</h4></button></Link>
             }
         </div>
     );

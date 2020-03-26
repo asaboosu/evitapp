@@ -21,6 +21,7 @@ const NavegadorVista = (props) => {
                     existeAtras={props.existeAtras}
                     estaLogeado={props.estaLogeado}
                     handleDeslogear={props.handleDeslogear}
+                    
                 />
             </div>
         </div>

@@ -18,6 +18,7 @@ const CompraVista = (props) => {
                 <Route exact path="/compra" component={TablaProceso}></Route>
                 <Route exact path="/compra/nueva" component={Nueva}></Route>
                 <Route exact path="/compra/compra" component={TablaCompra}></Route>
+                <Route exact path="/compra/terminar/:id" component={Terminada}></Route>
                 <Route exact path="/compra/proceso" component={TablaProceso}></Route>
                 <Route exact path="/compra/pagar/:id" component={Pagar}></Route>
                 <Route exact path="/compra/ver/:id" component={Detalle}></Route>

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { withRouter, Redirect} from 'react-router-dom';
 
 import NavegadorVista from './../Components/Navegador/NavegadorVista';
@@ -14,7 +13,7 @@ class Navegador extends React.Component {
         existeAtras: false,
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.unlisten = this.props.history.listen((location, action) => {
             const esInicio = (location.pathname === "/") ? true : false;
             const existeAtras = true;
@@ -40,9 +39,7 @@ class Navegador extends React.Component {
         return (
             <React.Fragment>
                 {this.props.redireccionar && 
-
                     <Redirect to="/"></Redirect>
-
                 }
             <NavegadorVista
             

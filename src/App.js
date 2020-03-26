@@ -42,9 +42,8 @@ class App extends Component {
                     <Navegador logeado={this.state.logeado} handleDeslogear={this.handleDeslogear}></Navegador>
                     <Switch>
                         <Route exact path="/" component={Inicio} />
-                        <Route exact path="/inicio" component={Inicio} />
-                        <Route exact path="/compra" component={Compra} />
-                        <Route exact path="/compra/:tipoCompra" component={Compra} />
+                        <Route path="/compra/" component={Compra} />
+                        <Route path="/producto" component={Producto} />
                     </Switch>
                 </Router>
             </React.Fragment>

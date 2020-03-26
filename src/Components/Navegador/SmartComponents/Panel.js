@@ -7,6 +7,7 @@ class Panel extends React.Component {
 
 
     render() {
+        
         return (
             <PanelVista
              esInicio={this.props.esInicio} 
