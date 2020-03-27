@@ -22,25 +22,31 @@ class Navegador extends React.Component {
 
     componentDidMount() {
         this.unlisten = this.props.history.listen((location, action) => {
-            const tituto ="";
+            const tituto = "";
+            const categoria = location.pathname.split("/")[3];
+
             switch (location.pathname) {
-                case "/producto/":
-                        this.setState({
-                            titulo:"Menu"
-                        });
-                    break;
-                case "/producto/ver/":
+                case "/producto/ver/menu7":
                     this.setState({
-                        titulo:"Busqueda:"
+                        titulo: "Menu"
                     });
                     break;
-                
+                case "/producto/buscar":
+                    this.setState({
+                        titulo: "Busqueda:"
+                    });
+                    break;
+                case ("/producto/ver/" + categoria):
+                    this.setState({
+                        titulo: "Lista de: "+ categoria
+                    });
+                    break;
+
                 default:
                     break;
             }
 
             this.setState({
-
                 menuBuscarAbierto: false,
                 menuCategoriaAbierto: false,
             });
@@ -64,13 +70,15 @@ class Navegador extends React.Component {
     handleAbrirMenu(e) {
         e.preventDefault();
         this.setState({
-            menuCategoriaAbierto: !this.state.menuCategoriaAbierto
+            menuCategoriaAbierto: !this.state.menuCategoriaAbierto,
+            menuBuscarAbierto: false
         });
     }
     handleBuscarMenu(e) {
         e.preventDefault();
         this.setState({
-            menuBuscarAbierto: !this.state.menuBuscarAbierto
+            menuBuscarAbierto: !this.state.menuBuscarAbierto,
+            menuCategoriaAbierto: false,
         });
     }
 
@@ -86,36 +94,37 @@ class Navegador extends React.Component {
                 />
 
 
-                <React.Fragment>
+                <React.Fragment >
+                    <div className="row">
+                        <div className="col-12">
+                            {this.state.menuBuscarAbierto &&
 
-                    {this.state.menuBuscarAbierto &&
+                                <BuscarProductoVista
+                                    handleBuscarClick={this.props.handleBuscarClick}>
+                                </BuscarProductoVista>
+                            }
+                        </div>
+                        {this.state.menuCategoriaAbierto &&
 
-                        <BuscarProductoVista
-                            handleBuscarClick={this.props.handleBuscarClick}>
-                        </BuscarProductoVista>
-                    }
-
-                    {this.state.menuCategoriaAbierto &&
-
-                        <NavegadorVista
-                            categorias={[
-                                "Menu",
-                                "Aguas",
-                                "Cervezas",
-                                "Vinos",
-                                "Destilados",
-                                "Licores",
-                                "Snacks",
-                                "Varios",
-                                "Embutidos",
-                                "Lacteos",
-                                "Helados",
-                                "Bebidas",
-                                "Cigarros",
-                            ]}
-                            handleClick={this.props.handleClick} />
-                    }
-
+                            <NavegadorVista
+                                categorias={[
+                                    "Menu",
+                                    "Aguas",
+                                    "Cervezas",
+                                    "Vinos",
+                                    "Destilados",
+                                    "Licores",
+                                    "Snacks",
+                                    "Varios",
+                                    "Embutidos",
+                                    "Lacteos",
+                                    "Helados",
+                                    "Bebidas",
+                                    "Cigarros",
+                                ]}
+                                handleClick={this.props.handleClick} />
+                        }
+                    </div>
                 </React.Fragment>
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Detalle extends React.Component {
     render(){
@@ -6,4 +7,4 @@ class Detalle extends React.Component {
     }
 }
 
-export default Detalle;
+export default withRouter(Detalle);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withRouter, Redirect} from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import NavegadorVista from './../Components/Navegador/NavegadorVista';
 
@@ -38,18 +38,14 @@ class Navegador extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.redireccionar && 
-                    <Redirect to="/"></Redirect>
-                }
-            <NavegadorVista
-            
-                titulo={this.state.titulo}
-                subTitulo={this.state.subTitulo}
-                esInicio={this.state.esInicio}
-                existeAtras={this.state.existeAtras}
-                estaLogeado={this.props.logeado}
-                handleDeslogear={this.props.handleDeslogear}
-            />
+                <NavegadorVista
+                    titulo={this.state.titulo}
+                    subTitulo={this.state.subTitulo}
+                    esInicio={this.state.esInicio}
+                    existeAtras={this.state.existeAtras}
+                    estaLogeado={this.props.logeado}
+                    handleDeslogear={this.props.handleDeslogear}
+                />
             </React.Fragment>
         );
     }
