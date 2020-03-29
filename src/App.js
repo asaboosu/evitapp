@@ -8,7 +8,6 @@ import Factura from './SmartComponents/Factura';
 import Producto from './SmartComponents/Producto';
 import Oferta from './SmartComponents/Oferta';
 import Navegador from './SmartComponents/Navegador';
-import NoMatch from './SmartComponents/NoMatch';
 
 
 class App extends Component {
@@ -26,7 +25,7 @@ class App extends Component {
 
         this.setState(state => ({
             logeado: false
-            
+
         }));
 
         return <Redirect to="/"></Redirect>;
@@ -37,16 +36,19 @@ class App extends Component {
 
     render() {
         return (
-            <React.Fragment>
-                <Router>
-                    <Navegador logeado={this.state.logeado} handleDeslogear={this.handleDeslogear}></Navegador>
-                    <Switch>
-                        <Route exact path="/" component={Inicio} />
-                        <Route path="/compra/" component={Compra} />
-                        <Route path="/producto" component={Producto} />
-                    </Switch>
-                </Router>
-            </React.Fragment>
+            <div className="container-fluid">
+                <React.Fragment>
+                    <Router>
+                        <Navegador logeado={this.state.logeado} handleDeslogear={this.handleDeslogear}></Navegador>
+                        <Switch>
+                            <Route exact path="/" component={Inicio} />
+                            <Route path="/compra/" component={Compra} />
+                            <Route path="/producto" component={Producto} />
+                        </Switch>
+                    </Router>
+                </React.Fragment>
+            </div>
+
 
         );
     }

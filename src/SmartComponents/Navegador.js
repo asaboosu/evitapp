@@ -1,29 +1,35 @@
 import React from 'react';
-
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import NavegadorVista from './../Components/Navegador/NavegadorVista';
 
 class Navegador extends React.Component {
 
-    state = {
-        titulo: "Botilleria Evita",
-        subTitulo: "Inicio",
-        esInicio: true,
-        existeAtras: false,
+    constructor(props) {
+        super(props);
+        const esInicio = (this.props.history.location.pathname === "/") ? true : false;
+        this.state = {
+            titulo: "Botilleria Evita",
+            subTitulo: "Inicio",
+            esInicio: esInicio,
+            existeAtras: false,
+        }
     }
+
 
     componentDidMount() {
         this.unlisten = this.props.history.listen((location, action) => {
             const esInicio = (location.pathname === "/") ? true : false;
+            const categoria = location.pathname.split("/")[3];
             const existeAtras = true;
-
             this.setState({
                 esInicio: esInicio,
-                existeAtras: existeAtras
+                existeAtras: existeAtras,
+                subTitulo: categoria
             });
-        });
+        })
     }
+
 
 
 

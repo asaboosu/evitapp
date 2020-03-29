@@ -3,7 +3,6 @@ import React from 'react';
 
 import Titulo from './SmartComponents/Titulo';
 import Panel from './SmartComponents/Panel';
-import { Link } from 'react-router-dom';
 
 const NavegadorVista = (props) => {
 

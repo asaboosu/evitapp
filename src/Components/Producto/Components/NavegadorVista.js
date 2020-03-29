@@ -6,8 +6,8 @@ const NavegadorVista = (props) => {
         <div className="container-fluid bg-danger">
             <div className="row">
                 {props.categorias.map(categoria =>
-                    <div className="col-md-1 border bg bg-danger border-dark ">
-                        <h5 className=""> <NavLink to={"/producto/ver/" + categoria.toLowerCase()} onClick={props.handleClick}><strong>{categoria}</strong></NavLink></h5>
+                    <div key={categoria} className="col-md-2 m-2 mx-auto rounded border text-center bg bg-danger border-dark ">
+                        <NavLink to={"/producto/ver/" + categoria.toLowerCase()} onClick={props.handleClick}><h5 className=""> <strong>{categoria}</strong></h5></NavLink>
                     </div>)
                 }
 
@@ -15,5 +15,4 @@ const NavegadorVista = (props) => {
         </div>
     );
 }
-
 export default NavegadorVista;

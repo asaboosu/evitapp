@@ -5,7 +5,7 @@ const MenuVista = (props) => {
         <div 
         className="container-fluid">
             <div className="row">
-                <h1>HOla</h1>
+                <h1></h1>
             </div>
         </div>
     );
