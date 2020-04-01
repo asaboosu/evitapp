@@ -9,36 +9,67 @@ class Navegador extends React.Component {
 
     constructor(props) {
         super(props);
+
+        //estado 
         this.state = {
-            titulo: "Menu",
+            titulo: "",
             menuCategoriaAbierto: false,
             menuBuscarAbierto: false,
         }
+
+        //titulo del navegador
+        const locacion = this.props.history.location.pathname;
+        const tipo = locacion.split("/")[3];
+        const query = locacion.split("/")[4];
+        switch (locacion) {
+            case "/producto":
+                this.state.titulo = "Menu";
+                break;
+            case "/producto/agregar":
+                this.state.titulo = "Agregar Productos";
+                break;
+            case "/producto/ver/" + tipo:
+                this.state.titulo = "Lista de " + tipo;
+                break;
+            case "/producto/buscar/" + tipo + "/" + query:
+                this.state.titulo = "Resultados para: " + query;
+                break;
+            default:
+                break;
+        }
+
+        //handlers
         this.handleAbrirMenu = this.handleAbrirMenu.bind(this);
         this.handleBuscarMenu = this.handleBuscarMenu.bind(this);
-         this.HandleBuscarCodigo = this.HandleBuscarCodigo.bind(this);
+        this.HandleBuscarCodigo = this.HandleBuscarCodigo.bind(this);
         this.HandleBuscarNombre = this.HandleBuscarNombre.bind(this);
         this.cambiarTitulo = this.cambiarTitulo.bind(this);
     }
 
     componentDidMount() {
         this.unlisten = this.props.history.listen((location, action) => {
-            const categoria = location.pathname.split("/")[3];
+            const tipo = location.pathname.split("/")[3];
+            const query = location.pathname.split("/")[4];
 
             switch (location.pathname) {
-                case "/producto/ver/menu":
+                case "/producto":
                     this.setState({
                         titulo: "Menu"
                     });
                     break;
-                case "/producto/buscar/" + location.pathname.split("/")[3] + "/" + location.pathname.split("/")[4]:
+                case "/producto/agregar":
                     this.setState({
-                        titulo: "Busqueda:" + location.pathname.split("/")[4]
+                        titulo: "Agregar Productos"
                     });
                     break;
-                case ("/producto/ver/" + categoria):
+                case "/producto/buscar/" + tipo + "/" + query:
                     this.setState({
-                        titulo: "Lista de: " + categoria
+                        titulo: "Resultados para:" + query
+                    });
+                    break;
+                case ("/producto/ver/" + tipo):
+                    this.setState({
+                        titulo: "Lista de " + tipo
                     });
                     break;
 
@@ -108,60 +139,9 @@ class Navegador extends React.Component {
                 <React.Fragment >
                     <div className="row">
                         <div className="col-12">
-                            {this.state.menuBuscarAbierto &&
-                                <div className="">
-                                    <div className="row border border-dark">
-                                        <div className=""></div>
-                                        <div className="col-md-4 input-group input-group-lg" >
-                                            <h2 className="mx-auto">Busqueda</h2>
-                                        </div>
-
-                                        <div className="col-md-4 p-1 input-group input-group-lg" >
-                                            <div className="input-group-prepend mx-auto">
-                                                <span className="input-group-text" id="inputGroup-sizing-lg">Por Nombre</span>
-                                            </div>
-                                            <input type="text" ref="busquedaNombre"
-                                                className="form-control" aria-label="" name="nombre" aria-describedby="inputGroup-sizing-lg" />
-                                            <div className="input-group-append">
-                                                <button className="btn btn-outline-success agregar" onClick={this.HandleBuscarNombre} id="button-addon2"
-                                                    type="button">✓</button>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-4 p-1 input-group input-group-lg  " >
-
-                                            <div className="input-group-prepend mx-auto">
-                                                <span className="input-group-text" name="codigo" id="inputGroup-sizing-lg">Por Codigo</span>
-                                            </div>
-                                            <input type="text" ref="busquedaCodigo"
-                                                className="form-control" aria-label="" onChange={this.HandleBuscarCodigo} aria-describedby="inputGroup-sizing-lg" />
-                                            <div className="input-group-append">
-                                                <button className="btn btn-outline-success agregar" id="button-addon2"
-                                                    onClick={this.HandleBuscarCodigo} type="button">✓</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
+                            
                         </div>
-                        {this.state.menuCategoriaAbierto &&
-
-                            <NavegadorVista
-                                categorias={[
-                                    "Aguas",
-                                    "Cervezas",
-                                    "Vinos",
-                                    "Destilados",
-                                    "Licores",
-                                    "Snacks",
-                                    "Varios",
-                                    "Embutidos",
-                                    "Lacteos",
-                                    "Helados",
-                                    "Bebidas",
-                                    "Cigarros",
-                                ]}
-                                handleClick={this.props.handleClick} />
-                        }
+                        
                     </div>
                 </React.Fragment>
 

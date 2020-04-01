@@ -39,7 +39,6 @@ class Table extends Component {
     }
 
     componentDidMount() {
-        console.log(this.el);
         this.$el = $(this.el)
         this.$el.DataTable({
             columns: this.state.columns,

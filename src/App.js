@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 
 import Inicio from './SmartComponents/Inicio';
@@ -27,11 +27,7 @@ class App extends Component {
             logeado: false
 
         }));
-
         return <Redirect to="/"></Redirect>;
-
-
-
     }
 
     render() {
@@ -42,8 +38,10 @@ class App extends Component {
                         <Navegador logeado={this.state.logeado} handleDeslogear={this.handleDeslogear}></Navegador>
                         <Switch>
                             <Route exact path="/" component={Inicio} />
-                            <Route path="/compra/" component={Compra} />
+                            <Route path="/compra" component={Compra} />
                             <Route path="/producto" component={Producto} />
+                            <Route path="/oferta" component={Oferta} />
+                            <Route path="/factura" component={Factura} />
                         </Switch>
                     </Router>
                 </React.Fragment>
