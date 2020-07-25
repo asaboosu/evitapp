@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import '../Libs/bootstrap/bootstrapLoad';
+import '../../bootstrap/bootstrapLoad';
 
 import Navegador from './NavegadorView';
 import InicioView from './InicioView';

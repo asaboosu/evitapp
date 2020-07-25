@@ -1,18 +1,6 @@
+import CoreModel from "../../Core/CoreModel";
 
-class userModel {
+export default class UserModel extends CoreModel(){
 
-    getLogin () {
-    }
-
-    desLogin () {
-    }
-
-    /**
-     * 
-     * @param {string} psswd 
-     */
-    doLogin ( psswd ) {
-    }
+    
 }
-
-export let UserModel = new userModel();

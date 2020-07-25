@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { UserController } from '../../Controllers/UserController';
+import { UserController } from '../../Controller/UserController';
 import swal from 'sweetalert';
 
 class Login extends Component {

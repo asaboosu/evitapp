@@ -1,12 +1,7 @@
-import { UserModel } from './../Model/UserModel';
+import { UserModel } from '../Model/SessionModel';
 
 class userController {
 
-
-    /**
-     * 
-     * @param {string} psswd 
-     */
     logear ( psswd ) {
         return  UserModel.doLogin( psswd );
     }

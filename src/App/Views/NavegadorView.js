@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import { UserController } from './../Controllers/UserController';
+import { UserController } from '../Controller/UserController';
 
 import Login from './Navegador/Login';
 

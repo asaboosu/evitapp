@@ -1,4 +1,4 @@
-import { OfertaModel } from './../Model/OfertaModel';
+import { OfertaModel } from '../Model/OfertaModel';
 
 class ofertaController {
 

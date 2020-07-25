@@ -1,47 +1,37 @@
+import CoreModel from "../../Core/CoreModel";
 
-class productoModel {
+export default class ProductoModel extends CoreModel {
 
-    /**
-     * 
-     * @param {string} id 
-     */
-    getProductoById ( id ) {
-    }
-
-    /**
-     * 
-     * @param {string} categoria 
-     */
-    getProductosByCat ( categoria ) {
-    }
-
-    getCategorias () {
+    getProductosByCategoria(producto) {
+        this.api.addApiUrl('/product/getByCat/' + producto.categoria);
+        let resp = this.api.get();
+        return resp;
 
     }
 
-    /**
-     * 
-     * @param {JSON} productos : array de productoDto 
-     */
-    addProductos ( productos ) {
-    }
-
-    /**
-     * 
-     * @param {string} idProducto 
-     * @param {productoDto} modificadoProducto 
-     */
-    modProducto ( idProducto, modificadoProducto ) {
+    getProductoByCodigo(producto) {
+        this.api.addApiUrl('/product/getByCod/' + producto.codigo);
+        let resp = this.api.get();
+        return resp;
 
     }
 
-    /**
-     * 
-     * @param {string} idProducto 
-     */
-    delProducto ( idProducto ) {
+    getProductoByTipo(producto) {
+        this.api.addApiUrl('/product/getByType/' + producto.tipo);
+        let resp = this.api.get();
+        return resp;
 
+    }
+
+    postProducto(producto){
+        this.api.addApiUrl('/product/create');
+        this.api.addBody(producto);
+        let resp 
+    }
+
+    postProductos(arrayProductos){
+        this.api.addApiUrl('/product/createByArray');
+        this.api.addBody(arrayProductos);
+        let resp = 
     }
 }
-
-export let ProductoModel = new productoModel();

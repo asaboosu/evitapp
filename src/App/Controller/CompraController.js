@@ -1,4 +1,4 @@
-import { CompraModel } from './../Model/CompraModel';
+import { CompraModel } from '../Model/CompraModel';
 
 class compraController {
 

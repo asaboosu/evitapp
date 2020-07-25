@@ -1,12 +1,13 @@
 /**
  * clase para api rest
  */
-class api {
+export default class CoreApi {
 
     /**
      * url base
      */
-    url = 'https://www.fakeapi.online/api/apis/asd/';
+    static defaultUrl = 'https://www.fakeapi.online/api/apis/asd/';
+
 
     /**
      * init estatico para utilizar de reinicio en todas las instancias
@@ -19,10 +20,11 @@ class api {
         }
     };
 
+    url = {...defaultUrl};    
     /**
      * init actual del objeto
      */
-    init = { ...api.defaultInit };
+    init = { ...CoreApi.defaultInit };
 
     /**objeto para el cuerpo de la peticion cuando corresponda */
     body = {};
@@ -38,43 +40,12 @@ class api {
     response = {};
 
     /**
-     * se agrega una key y valor a los parametros de la peticion
-     * @param {string} key 
-     * @param {*} value 
-     */
-    addData(key, value) {
-        this.body = {};
-        this.body[key] = value;
-    }
-
-    /**
      * 
      * la uri de la query para la api
      * @param {string} apiUrl 
      */
     addApiUrl(apiUrl) {
         this.apiUrl = apiUrl;
-    }
-
-    /**
-     * @param {cambiar la url por defecto} newUrl 
-     */
-    addUrl(newUrl = "") {
-        this.url = newUrl;
-    }
-
-    /**
-     * se suman propiedades al init por defecto
-     * no agrega el body con este metodo
-     * @param {object} initOptions 
-     */
-    addInit(initOptions = {}) {
-        for (const key in initOptions) {
-            if (initOptions.hasOwnProperty(key)) {
-                this.init[key] = initOptions[key];
-
-            }
-        }
     }
 
     /**
@@ -91,9 +62,9 @@ class api {
      */
     __cleanObject() {
         this.body = {};
-        this.apiUrl = "";
+        this.apiUrl = {...CoreApi.defaultUrl};
         this.response = {};
-        this.init = { ...api.defaultInit };
+        this.init = { ...CoreApi.defaultInit };
 
     }
 
@@ -158,5 +129,3 @@ class api {
     }
 
 }
-
-let Api = new api();

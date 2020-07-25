@@ -1,9 +1,11 @@
+import CoreModel from "../../Core/CoreModel";
 
-class compraModel{
-
+export default class CompraModel extends CoreModel{
     
 
-    getCompraById () { }
+    getCompraById () {
+        
+     }
 
     getComprasByTipo () { }
 
@@ -13,7 +15,5 @@ class compraModel{
 
     delCompra () { }
 
-    doneCompra () { }
+    endCompra () { }
 }
-
-export let CompraModel = new compraModel();
