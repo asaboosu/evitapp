@@ -70,8 +70,6 @@ class Nueva extends React.Component {
 
     }
 
-    async sincronizarCompra() { }
-
     /**
     *
     * @param {object} params

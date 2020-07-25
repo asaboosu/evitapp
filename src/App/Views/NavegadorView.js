@@ -7,28 +7,29 @@ import { UserController } from './../Controllers/UserController';
 import Login from './Navegador/Login';
 
 import swal from '@sweetalert/with-react';
+
 class NavegadorView extends Component {
 
+    //se define el estado default
     state = {
         login: false
     };
 
+    /**
+     * se trae el estado del login desde el controlador
+     */
     componentDidMount () {
         this.getLogin();
     }
 
-    eventLogin = ( login ) => {
+    getLogin = () => {
+        let login = UserController.getLogin();
         this.setState( {
             login
         } );
     };
 
-    getLogin = () => {
-        let login = UserController.getLogin();
-        this.eventLogin( login );
-    };
-
-    Login = () => {
+    login = () => {
         swal(
             {
                 content:

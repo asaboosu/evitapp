@@ -1,6 +1,7 @@
-import CoreModel from './../../Core/CoreModel';
 
-class compraModel extends CoreModel {
+class compraModel{
+
+    
 
     getCompraById () { }
 

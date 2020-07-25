@@ -1,30 +1,45 @@
-import CoreModel from './../../Core/CoreModel';
 
-class productoModel extends CoreModel {
+class productoModel {
 
+    /**
+     * 
+     * @param {string} id 
+     */
     getProductoById ( id ) {
-        return this.api.request( "producto", "ver", "POST", { id } );
     }
+
+    /**
+     * 
+     * @param {string} categoria 
+     */
     getProductosByCat ( categoria ) {
-        return this.api.request( "producto", "categoria", "POST", { categoria } );
     }
 
     getCategorias () {
-        return this.api.request( "producto", "categorias" );
 
     }
 
+    /**
+     * 
+     * @param {JSON} productos : array de productoDto 
+     */
     addProductos ( productos ) {
-        return this.api.request( "producto", "agregar", "POST", { productos } );
     }
 
+    /**
+     * 
+     * @param {string} idProducto 
+     * @param {productoDto} modificadoProducto 
+     */
     modProducto ( idProducto, modificadoProducto ) {
-        return this.api.request( "producto", "modificar", "POST", { idProducto, modificadoProducto } );
 
     }
 
+    /**
+     * 
+     * @param {string} idProducto 
+     */
     delProducto ( idProducto ) {
-        return this.api.request( "producto", "eliminar", "POST", { idProducto } );
 
     }
 }

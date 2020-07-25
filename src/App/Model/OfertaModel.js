@@ -1,5 +1,4 @@
-import CoreModel from './../../Core/CoreModel';
-class ofertaModel extends CoreModel {
+class ofertaModel{
     
     getOfertaById () { }
 

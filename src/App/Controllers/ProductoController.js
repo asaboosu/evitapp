@@ -1,11 +1,11 @@
-import CoreController from "../../Core/CoreController";
 import { ProductoModel } from '../Model/ProductoModel';
 
-class productoController extends CoreController {
+class productoController{
 
 
     ver ( categoria = "" ) {
 
+        
         let resp = {
             resultado: false,
             texto: "No se ha podido conectar al sevidor"
@@ -65,8 +65,7 @@ class productoController extends CoreController {
     }
 
     getCategorias () {
-        let result = ProductoModel.getCategorias();
-        return result;
+        return ProductoModel.getCategorias();
 
     }
 }

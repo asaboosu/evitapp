@@ -1,5 +1,4 @@
-import CoreModel from './../../Core/CoreModel';
-class facturaModel extends CoreModel {
+class facturaModel{
 
     getFacturaById () { }
     

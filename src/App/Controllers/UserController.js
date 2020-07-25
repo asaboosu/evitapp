@@ -1,22 +1,23 @@
-import CoreController from "../../Core/CoreController";
 import { UserModel } from './../Model/UserModel';
 
-class userController extends CoreController {
+class userController {
 
-    static estadoLogin = true;
 
+    /**
+     * 
+     * @param {string} psswd 
+     */
     logear ( psswd ) {
-        userController.estadoLogin = UserModel.doLogin( psswd );
-        return userController.estadoLogin;
+        return  UserModel.doLogin( psswd );
     }
 
     deslogear () {
-        userController.estadoLogin = UserModel.desLogin();
-        return userController.estadoLogin;
+        return UserModel.desLogin();
     }
 
     getLogin () {
-        return userController.estadoLogin;
+        return UserModel.getLogin();
+        
     }
 }
 

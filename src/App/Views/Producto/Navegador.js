@@ -25,8 +25,6 @@ class Navegador extends React.Component {
 
     }
 
-
-
     handleEvent () {
         this.setState( {
             menuBuscarAbierto: false,

@@ -1,7 +1,6 @@
-import CoreController from "../../Core/CoreController";
 import { CompraModel } from './../Model/CompraModel';
 
-class compraController extends CoreController {
+class compraController {
 
     ver ( id ) {
 

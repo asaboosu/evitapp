@@ -2,10 +2,6 @@ import React from 'react';
 
 import TablaTab from "./TablaTab";
 
-import compraApi from "./compraApi";
-import loginApi from "./../loginApi";
-import productoApi from "./../Producto/productoApi";
-
 import Panel from "./Nueva/Panel"
 
 
@@ -86,9 +82,7 @@ class Nueva extends React.Component {
        *
        */
     async getProductos(params) {
-        let resultado = await productoApi.buscarProductos({
-            tipo: params.tipo, query: params.query
-        });
+     
     }
 
     agregarHandler(detalle) {

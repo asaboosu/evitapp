@@ -40,7 +40,7 @@ export default class InicioView extends React.Component {
                         </div>
                         <div className="col-md-6 col-sm-6 mx-auto text-center p-2">
                             <div>
-                                <AbrirCompra onClick={this.abrirCompra}></AbrirCompra>
+                                <AbrirCompra></AbrirCompra>
                             </div>
                         </div>
                     </div>

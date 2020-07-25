@@ -1,7 +1,6 @@
-import CoreController from "../../Core/CoreController";
 import { OfertaModel } from './../Model/OfertaModel';
 
-class ofertaController extends CoreController {
+class ofertaController {
 
     verId ( id ) {
         return OfertaModel.getOfertaById( id );

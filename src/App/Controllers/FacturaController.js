@@ -1,7 +1,6 @@
-import CoreController from "../../Core/CoreController";
 import { FacturaModel } from './../Model/FacturaModel';
 
-class facturaController extends CoreController {
+class facturaController {
 
     ver ( id ) {
         return FacturaModel.getFacturaById( id );

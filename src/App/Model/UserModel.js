@@ -1,17 +1,17 @@
-import CoreModel from './../../Core/CoreModel';
 
-class userModel extends CoreModel {
+class userModel {
 
     getLogin () {
-        return this.api.request( "user", "state", "POST" );
     }
 
     desLogin () {
-        return this.api.request( "user", "salir", "POST" );
     }
 
+    /**
+     * 
+     * @param {string} psswd 
+     */
     doLogin ( psswd ) {
-        return this.api.request( "user", "login", "POST", { psswd } );
     }
 }
 
