@@ -1,8 +1,17 @@
+/**
+ * clase para api rest
+ */
 class api {
 
+    /**
+     * url base
+     */
     url = 'https://www.fakeapi.online/api/apis/asd/';
 
-    init = {
+    /**
+     * init estatico para utilizar de reinicio en todas las instancias
+     */
+    static defaultInit = {
         mode: 'cors',
         cache: 'default',
         headers: {
@@ -10,27 +19,56 @@ class api {
         }
     };
 
+    /**
+     * init actual del objeto
+     */
+    init = { ...api.defaultInit };
+
+    /**objeto para el cuerpo de la peticion cuando corresponda */
     body = {};
 
+    /**
+     * uri para la query
+     */
     apiUrl = "";
 
-    response ;
+    /**
+     * se guardara la respuesta del objeto
+     */
+    response = {};
 
-
+    /**
+     * se agrega una key y valor a los parametros de la peticion
+     * @param {string} key 
+     * @param {*} value 
+     */
     addData(key, value) {
         this.body = {};
         this.body[key] = value;
     }
 
+    /**
+     * 
+     * la uri de la query para la api
+     * @param {string} apiUrl 
+     */
     addApiUrl(apiUrl) {
         this.apiUrl = apiUrl;
     }
 
-    addUrl(newUrl = ""){
-        this.url = newUrl; 
+    /**
+     * @param {cambiar la url por defecto} newUrl 
+     */
+    addUrl(newUrl = "") {
+        this.url = newUrl;
     }
 
-    addInit(initOptions = {}){
+    /**
+     * se suman propiedades al init por defecto
+     * no agrega el body con este metodo
+     * @param {object} initOptions 
+     */
+    addInit(initOptions = {}) {
         for (const key in initOptions) {
             if (initOptions.hasOwnProperty(key)) {
                 this.init[key] = initOptions[key];
@@ -39,63 +77,84 @@ class api {
         }
     }
 
-    addBody(body = {}){
+    /**
+     * se agrega un objeto para el body, se stringifica xd y se agrega al init
+     * @param {object} body 
+     */
+    addBody(body = {}) {
         this.body = JSON.stringify(body);
     }
 
 
+    /**
+     * se limpia el objeto, preparandolo para otra peticion
+     */
     __cleanObject() {
         this.body = {};
         this.apiUrl = "";
+        this.response = {};
+        this.init = { ...api.defaultInit };
+
     }
 
+    /**
+     * el objeto ejecuta la peticion
+     */
     __peticion() {
-        response
+
+        this.response = fetch(this.url + this.apiUrl, this.init)
+            .then(res => res.json())
+            .catch(error => console.error('Error' + error))
+            .then(response => {
+                return response;
+            });
 
 
+        return this.response;
     }
 
     get() {
-
-
+        this.init = 'GET';
+        let resp = this.__peticion();
+        this.__cleanObject();
+        return resp;
 
     }
 
-    post() {
-        
+    post(data = {}) {
+        this.init = 'POST';
+        this.addBody(data)
+        let resp = this.__peticion();
+        this.__cleanObject();
+        return resp;
 
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-
-        }).then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
     }
 
-    put() {
+    put(data = {}) {
+        this.init = 'PUT';
+        this.addBody(data)
+        let resp = this.__peticion();
+        this.__cleanObject();
 
-  
+        return resp;
 
-        fetch('https://example.com/profile/avatar', {
-            method: 'PUT',
-            body: formData
-        })
-            .then(response => response.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));
-  
-        }
+    }
 
-    patch() {
- 
+    patch(data = {}) {
+        this.init = 'PATCH';
+        this.addBody(data)
+        let resp = this.__peticion();
+        this.__cleanObject();
+
+        return resp;
 
     }
 
     delete() {
- 
- 
- 
+        this.init = 'DELETE';
+        let resp = this.__peticion();
+        this.__cleanObject();
+        return resp;
     }
 
 }
