@@ -1,19 +1,19 @@
 import CoreModel from "../../Core/CoreModel";
 
-export default class OrderModel extends CoreModel{
-    
+export default class OrderModel extends CoreModel {
 
-    getOrderById () {}
 
-    getOrdersByType () { }
+    getOrderById() { }
 
-    addOrder () { }
+    getOrdersByType() { }
 
-    modOrder () { }
+    addOrder() { }
 
-    delOrder () { }
+    modOrder() { }
 
-    payOrder(){}
+    delOrder() { }
 
-    endOrder () { }
+    payOrder() { }
+
+    endOrder() { }
 }

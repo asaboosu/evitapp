@@ -1,8 +1,8 @@
 import CoreModel from "../../Core/CoreModel";
 
-export default class BillModel extends CoreModel{
+export default class BillModel extends CoreModel {
 
-    getBillById () { }
-    
-    getBillByDate () { }
+    getBillById() { }
+
+    getBillByDate() { }
 }

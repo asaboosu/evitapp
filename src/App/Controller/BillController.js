@@ -1,15 +1,15 @@
 import CoreController from '../../Core/CoreController';
 import { BillModel } from './../Model/BillModel';
 
-class billController  extends CoreController{
+class billController extends CoreController {
 
-    ver ( id ) {
-        return BillModel.getBillById( id );
+    ver(id) {
+        return BillModel.getBillById(id);
 
     }
 
-    buscar ( año, mes ) {
-        return BillModel.getBillsByDate( año, mes );
+    buscar(año, mes) {
+        return BillModel.getBillsByDate(año, mes);
 
     }
 }

@@ -23,19 +23,19 @@ export default class ProductModel extends CoreModel {
 
     }
 
-    crearProduct(product){
-        this.api.addApiUrl('/product/create' );
+    crearProduct(product) {
+        this.api.addApiUrl('/product/create');
         this.api.addBody(product);
         let resp = this.api.post();
     }
 
-    crearProducts(arrayProducts){
+    crearProducts(arrayProducts) {
         this.api.addApiUrl('/product/createByArray');
         this.api.addBody(arrayProducts);
         let resp = this.api.post();
     }
 
-    modProduct(oldProduct, newProduct){
+    modProduct(oldProduct, newProduct) {
         this.api.addApiUrl('/product/modify');
         this.api.addBody({
             old: oldProduct,

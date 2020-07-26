@@ -1,39 +1,39 @@
 import CoreController from '../../Core/CoreController';
 import { OrderModel } from '../Model/OrderModel';
 
-class orderController extends CoreController{
+class orderController extends CoreController {
 
-    getOrderById ( id ) {
-        return OrderModel.getOrderById( id );
+    getOrderById(id) {
+        return OrderModel.getOrderById(id);
     }
 
-    getOrderByCompleted () {
-        return OrderModel.getOrdersByType( "completada" );
+    getOrderByCompleted() {
+        return OrderModel.getOrdersByType("completada");
 
     }
 
-    getOrderByNotCompleted () {
-        return OrderModel.getOrdersByType( "proceso" );
+    getOrderByNotCompleted() {
+        return OrderModel.getOrdersByType("proceso");
     }
 
-    newOrder ( products ) {
+    newOrder(products) {
         let Order = new OrderDto(products);
-        return OrderModel.addOrder( Order );
+        return OrderModel.addOrder(Order);
     }
 
-    modOrder ( newOrder, oldOrder ) {
-        return OrderModel.modOrder( newOrder, oldOrder );
+    modOrder(newOrder, oldOrder) {
+        return OrderModel.modOrder(newOrder, oldOrder);
     }
 
-    delOrder ( idOrder ) {
-        return OrderModel.delOrder( idOrder );
+    delOrder(idOrder) {
+        return OrderModel.delOrder(idOrder);
     }
 
-    completeOrder ( idOrder ) {
+    completeOrder(idOrder) {
         return OrderModel.doneOrder();
     }
 
-    doneOrder(idOrder){
+    doneOrder(idOrder) {
         return OrderModel.endOrder();
 
     }

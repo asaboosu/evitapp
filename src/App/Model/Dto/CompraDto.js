@@ -4,31 +4,31 @@ export default class CompraDTO {
     
     id;
 
-    hora;
+    time;
 
-    fecha;
+    date;
 
     total;
 
-    ofertas;
+    discounts;
 
-    detalles;
+    details;
 
-    completada;
+    completed;
 
 
 
     /**
     * Compra creada en el cliente
     * 
-    * @param {String} hora
+    * @param {String} time
     * @param {int} total
-    * @param {Array<DetalleDTO>} detalles
+    * @param {Array<DetalleDTO>} details
     */
-    constructor(hora, total, detalles) {
-        this.hora = hora;
+    constructor(time, total, details) {
+        this.time = time;
         this.total = total;
-        this.detalles = detalles;
+        this.details = details;
 
     }
 
@@ -36,19 +36,19 @@ export default class CompraDTO {
      * Compra obtenida desde api
      * 
      * @param {String} id 
-     * @param {String} hora 
+     * @param {String} time 
      * @param {int} total 
-     * @param {Array<OfertaDTO>} ofertas 
-     * @param {Array<DetalleDTO>} detalles
-     * @param {boolean} completada
+     * @param {Array<OfertaDTO>} discounts 
+     * @param {Array<DetalleDTO>} details
+     * @param {boolean} completed
      */
-    constructor(id, hora, total, ofertas, detalles, completada) {
+    constructor(id, time, total, discounts, details, completed) {
         this.id = id;
-        this.hora = hora;
+        this.time = time;
         this.total = total;
-        this.ofertas = ofertas;
-        this.detalles = detalles;
-        this.completada = completada;
+        this.discounts = discounts;
+        this.details = details;
+        this.completed = completed;
 
     }
 

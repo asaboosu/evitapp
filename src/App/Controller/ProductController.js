@@ -1,29 +1,26 @@
 import CoreController from "../../Core/CoreController";
-import ProductModel from '../Model/ProductModel'
+import { ProductModel } from '../Model/ProductModel'
 
-class productController extends CoreController{
+class productController extends CoreController {
 
-    getProductsByCat ( category = "" ) {
+    getProductsByCat(category = "") {
         let resp = {
             result: false,
             text: "No se ha podido conectar al sevidor"
         };
 
-        if ( category !== "" )
-        {
-            try
-            {
-                resp = ProductModel.getProductsByCat( category );
+        if (category !== "") {
+            try {
+                resp = ProductModel.getProductsByCat(category);
 
-            } catch ( error )
-            {
+            } catch (error) {
 
             }
         }
         return resp;
     }
 
-    newProducts ( products = [] ) {
+    newProducts(products = []) {
 
         let resp = {
             result: false,
@@ -31,31 +28,30 @@ class productController extends CoreController{
         };
 
 
-        switch ( true )
-        {
-            case ( products.length === 0 ):
+        switch (true) {
+            case (products.length === 0):
                 resp.text = "No se han agregado products.";
                 break;
             default:
-                let pet = ProductModel.addProducts( products );
+                let pet = ProductModel.addProducts(products);
                 resp = pet;
                 break;
         }
         return resp;
     }
 
-    modProduct ( oldProduct, newProduct ) {
-        return ProductModel.modProduct( oldProduct, newProduct );
+    modProduct(oldProduct, newProduct) {
+        return ProductModel.modProduct(oldProduct, newProduct);
 
     }
 
-    delProduct ( product ) {
+    delProduct(product) {
 
-        return ProductModel.delProduct( product );
+        return ProductModel.delProduct(product);
 
     }
 
-    getCategorys () {
+    getCategories() {
         return ProductModel.getCategory();
     }
 }

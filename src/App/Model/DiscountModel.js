@@ -1,15 +1,15 @@
 import CoreModel from "../../Core/CoreModel";
 
-export default class DiscountModel extends CoreModel{
-    
-    getDiscountById () { }
+export default class DiscountModel extends CoreModel {
 
-    getDiscountsByType () { }
+    getDiscountById() { }
 
-    addDiscount () { }
+    getDiscountsByType() { }
 
-    modDiscount () { }
+    addDiscount() { }
 
-    delDiscount () { }
+    modDiscount() { }
+
+    delDiscount() { }
 
 }
