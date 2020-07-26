@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import TablaTab from "./TablaTab";
 import { withRouter } from 'react-router';
-import { ProductoController } from '../../Controller/ProductoController';
+import { ProductoController } from '../../Controller/ProductController';
 
 class Categoria extends Component {
     constructor ( props ) {

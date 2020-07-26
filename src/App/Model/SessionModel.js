@@ -1,5 +1,4 @@
 import CoreModel from "../../Core/CoreModel";
-import SessionDto from "../Dto/SessionDto";
 
 export default class SessionModel extends CoreModel {
 
@@ -11,13 +10,13 @@ export default class SessionModel extends CoreModel {
     }
 
     delSession(session) {
-        this.api.addApiUrl('/session/delByPassword');
+        this.api.addApiUrl('/session/delByPass');
         this.api.addBody(session);
         let resp = new SessionDto(this.api.delete());
         return resp;
     }
 
-    postSession(session) {
+    newSession(session) {
         this.api.addApiUrl('/session/create');
         this.api.addBody(session);
         let resp = new SessionDto(this.api.post());

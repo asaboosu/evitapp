@@ -71,7 +71,7 @@ export default class CoreApi {
     /**
      * el objeto ejecuta la peticion
      */
-    __peticion() {
+    __petition() {
 
         this.response = fetch(this.url + this.apiUrl, this.init)
             .then(res => res.json())
