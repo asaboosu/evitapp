@@ -23,7 +23,7 @@ export default class CompraDTO {
     * 
     * @param {String} time
     * @param {int} total
-    * @param {Array<DetalleDTO>} details
+    * @param {Array<DetailDto>} details
     */
     constructor(time, total, details) {
         this.time = time;
@@ -38,8 +38,8 @@ export default class CompraDTO {
      * @param {String} id 
      * @param {String} time 
      * @param {int} total 
-     * @param {Array<OfertaDTO>} discounts 
-     * @param {Array<DetalleDTO>} details
+     * @param {Array<OfertaDto>} discounts 
+     * @param {Array<DetailDto>} details
      * @param {boolean} completed
      */
     constructor(id, time, total, discounts, details, completed) {

@@ -3,12 +3,12 @@ import { BillModel } from './../Model/BillModel';
 
 class billController extends CoreController {
 
-    ver(id) {
+    getBillById(id) {
         return BillModel.getBillById(id);
 
     }
 
-    buscar(año, mes) {
+    getBillsByDate(año, mes) {
         return BillModel.getBillsByDate(año, mes);
 
     }

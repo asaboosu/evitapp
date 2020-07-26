@@ -94,7 +94,7 @@ export default class CoreApi {
 
     post(data = {}) {
         this.init = 'POST';
-        this.addBody(data)
+        this.addBody(data);
         let resp = this.__peticion();
         this.__cleanObject();
         return resp;
@@ -103,7 +103,7 @@ export default class CoreApi {
 
     put(data = {}) {
         this.init = 'PUT';
-        this.addBody(data)
+        this.addBody(data);
         let resp = this.__peticion();
         this.__cleanObject();
 
@@ -113,7 +113,7 @@ export default class CoreApi {
 
     patch(data = {}) {
         this.init = 'PATCH';
-        this.addBody(data)
+        this.addBody(data);
         let resp = this.__peticion();
         this.__cleanObject();
 

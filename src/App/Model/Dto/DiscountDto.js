@@ -1,39 +1,39 @@
 export default class OfertaDTO {
 
-    codigo;
+    id;
 
-    detalles;
+    details;
 
-    tipo;
+    type;
 
     total;
 
     /**
      * Oferta creada en el cliente
      * 
-     * @param {Array<DetalleDTO>} detalles
+     * @param {Array<DetailDto>} details
      * @param {int} total 
-     * @param {String} tipo 
+     * @param {String} type 
      */
-    constructor(detalles, total, tipo) {
+    constructor(details, total, type) {
         this.total = total;
-        this.total = tipo;
-        this.total = detalles;
+        this.total = type;
+        this.total = details;
     }
 
 
     /**
      * Oferta creada en la api
      *
-     * @param {Array<DetalleDTO>} detalles
+     * @param {Array<DetailDto>} details
      * @param {int} total
-     * @param {String} tipo
+     * @param {String} type
      */
-    constructor(codigo, detalles, total, tipo) {
-        this.codigo = codigo;
+    constructor(id, details, total, type) {
+        this.id = id;
         this.total = total;
-        this.total = tipo;
-        this.total = detalles;
+        this.total = type;
+        this.total = details;
     }
 
 }
