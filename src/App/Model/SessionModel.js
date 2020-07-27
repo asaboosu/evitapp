@@ -12,7 +12,7 @@ export default class SessionModel extends CoreModel {
     delSession(session) {
         this.api.addApiUrl('/session/delByPass');
         this.api.addBody(session);
-        let resp = new SessionDto(this.api.delete());
+        let resp = this.api.delete();
         return resp;
     }
 

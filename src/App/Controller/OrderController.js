@@ -1,7 +1,11 @@
 import CoreController from '../../Core/CoreController';
-import { OrderModel } from '../Model/OrderModel';
+import OrderModel from '../Model/OrderModel';
 
 class orderController extends CoreController {
+
+    constructor(){
+
+    }
 
     getOrderById(id) {
         return OrderModel.getOrderById(id);
@@ -15,7 +19,7 @@ class orderController extends CoreController {
     getOrderByNotCompleted() {
         return OrderModel.getOrdersByType("proceso");
     }
-
+T
     newOrder(products) {
         let Order = new OrderDto(products);
         return OrderModel.addOrder(Order);
@@ -34,7 +38,7 @@ class orderController extends CoreController {
     }
 
     doneOrder(idOrder) {
-        return OrderModel.endOrder();
+        return OrderModel.doneOrder();
 
     }
 
