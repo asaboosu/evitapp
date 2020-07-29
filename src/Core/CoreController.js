@@ -7,14 +7,10 @@ export default class CoreController{
 
     /**
      * 
-     * @param {CoreModel} models. example: {someModel: new SomeModel()}
+     * @param {CoreModel} model
      */
-    loadModel( models = {}){
-        for (const key in models) {
-            if (models.hasOwnProperty(key)) {
-                this.models[key] = models[key];
-            }
-        }
-    }
+    loadModel(model) {
+        this.models[model.constructor.name] = model;
+    }   
 
 }

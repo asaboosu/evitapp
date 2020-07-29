@@ -8,20 +8,20 @@ export default class ProductModel extends CoreModel {
 
     }
 
-    getProductByCod(product,page) {
+    getProductsByCod(product,page) {
         this.api.addApiUrl("/product/id/" + product.id + "/page/" + page );
         return this.api.get();
 
     }
 
-    getProductByType(product,page) {
+    getProducstByType(product,page) {
         this.api.addApiUrl("/product/type/" + product.type + "/page/" + page );
         return this.api.get();
 
-    }2
+    }
 
-    getProductByDiscountId(discount){
-        this.api.addApiUrl("/product/discount/" + discount.id + "/page/" + page );
+    getProductsByDiscountId(discount){
+        this.api.addApiUrl("/product/discount/id/" + discount.id + "/page/" + page );
         return this.api.get();
     }
 

@@ -2,12 +2,8 @@ import CoreModel from "../../Core/CoreModel";
 
 export default class SessionModel extends CoreModel {
 
-
-    getSession(session) {
-        this.api.addApiUrl("/session/" + session.id);
-        return this.api.get();
-    }
-
+    
+   
     delSession(session) {
         this.api.addApiUrl("/session/" + session.id);
         return this.api.delete();

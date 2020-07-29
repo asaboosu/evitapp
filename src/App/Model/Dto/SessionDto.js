@@ -2,16 +2,16 @@ export default class SessionDto {
 
     id;
 
-    key;
+    token;
 
     startTime;
 
-    constructor(id = "", key = "") {
+    constructor(id = "", token = "") {
         this.nombre = nombre;
         this.login = login;
     }
     
-    constructor(id = "",startTime= "", key = "") {
+    constructor(id = "",startTime= "", token = "") {
         this.nombre = nombre;
         this.login = login;
     }

@@ -2,14 +2,31 @@ import CoreModel from "../../Core/CoreModel";
 
 export default class DiscountModel extends CoreModel {
 
-    getDiscountById() { }
+    getDiscountById(discount) {
+        this.api.addApiUrl("/discount/id/" + discount.id);
+        return this.api.get();
+     }
 
-    getDiscountsByType() { }
+    getDiscountsByType(discount) {
+        this.api.addApiUrl("/discount/type/" + discount.type);
+        return discount;
+     }
 
-    addDiscount() { }
+    newDiscount(discount) {
+        this.api.addApiUrl("/discount");
+        this.api.addBody(discount);
+        return this.api.post();
+     }
 
-    modDiscount() { }
+    modDiscount(newDiscount, oldDiscount) {
+        this.api.addApiUrl("/discount/id/" + oldDiscount.id);
+        this.api.addBody(newDiscount);
+        return this.api.put();
+     }
 
-    delDiscount() { }
+    delDiscount(discount) { 
+        this.api.addApiUrl("/product/id/" + discount.id );
+        return this.api.delete();
+    }
 
 }
