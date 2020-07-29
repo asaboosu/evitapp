@@ -1,5 +1,5 @@
 import CoreController from "../../Core/CoreController";
-import { ProductModel } from '../Model/ProductModel'
+import ProductModel from '../Model/ProductModel'
 
 class productController extends CoreController {
 

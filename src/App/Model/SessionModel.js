@@ -4,22 +4,26 @@ export default class SessionModel extends CoreModel {
 
 
     getSession(session) {
-        this.api.addApiUrl('/session/getById/' + session.id);
-        let resp = new SessionDto(this.api.get());
-        return resp;
+        this.api.addApiUrl("/session/" + session.id);
+        return this.api.get();
     }
 
     delSession(session) {
-        this.api.addApiUrl('/session/delByPass');
+        this.api.addApiUrl("/session/" + session.id);
+        return this.api.delete();
+    }
+
+    modSession(session) {
+        this.api.addApiUrl("/session");
         this.api.addBody(session);
-        let resp = this.api.delete();
-        return resp;
+        return this.api.put();
     }
 
     newSession(session) {
-        this.api.addApiUrl('/session/create');
+        this.api.addApiUrl('/session');
         this.api.addBody(session);
-        let resp = new SessionDto(this.api.post());
-        return resp;
+        return this.api.post();
     }
+
+    
 }

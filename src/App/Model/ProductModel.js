@@ -3,54 +3,54 @@ import CoreModel from "../../Core/CoreModel";
 export default class ProductModel extends CoreModel {
 
     getProductsByCat(product,page) {
-        this.api.addApiUrl("/product/getByCat/" + product.category + "/page/" + page );
-        let resp = this.api.get();
-        return resp;
+        this.api.addApiUrl("/product/category/" + product.category + "/page/" + page );
+        return this.api.get();
 
     }
 
     getProductByCod(product,page) {
-        this.api.addApiUrl("/product/getByCod/" + product.code + "/page/" + page );
-        let resp = this.api.get();
-        return resp;
+        this.api.addApiUrl("/product/id/" + product.id + "/page/" + page );
+        return this.api.get();
 
     }
 
     getProductByType(product,page) {
-        this.api.addApiUrl("/product/getByType/" + product.type + "/page/" + page);
-        this.api.get();
-        return resp;
+        this.api.addApiUrl("/product/type/" + product.type + "/page/" + page );
+        return this.api.get();
 
+    }2
+
+    getProductByDiscountId(discount){
+        this.api.addApiUrl("/product/discount/" + discount.id + "/page/" + page );
+        return this.api.get();
     }
 
     newProduct(product) {
-        this.api.addApiUrl('/product/create');
-        let resp = this.api.post();
-        return resp;
+        this.api.addApiUrl('/product');
+        this.api.addBody(product);
+        return this.api.post();
     }
 
     newProducts(arrayProducts) {
-        this.api.addApiUrl('/product/createByArray');
+        this.api.addApiUrl('/product' );
         this.api.addBody(arrayProducts);
-        let resp = this.api.post();
-        return resp;
+        return this.api.post();
     }
 
-    modProduct(oldProduct, newProduct) {
-        this.api.addApiUrl("/product/" + oldProduct.id);
+    modProduct(newProduct, oldProduct) {
+        this.api.addApiUrl("/product" );
         this.api.addBody({
-            old: oldProduct,
-            new: newProduct
+            new: newProduct,
+            old: oldProduct
         });
-        let resp = this.api.put();
-        return resp;
-
+        return this.api.put();
     }
 
     delProduct(product){
-        this.api.addApiUrl("/product/" + product.id);
-
-
+        this.api.addApiUrl("/product/id/" + product.id );
+        return this.api.delete();
     }
+
+
 
 }
