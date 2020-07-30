@@ -2,25 +2,39 @@ export default class SessionDto {
 
     id;
 
-    nombre;
+    name;
 
     email;
 
-    contraseña;
+    password;
 
     token;
 
-    constructor(email,contraseña, token){
+    /**
+     * Objeto creado en cliente
+     * @param {string} email 
+     * @param {string} password 
+     * @param {string} token 
+     */
+    constructor(email,password, token){
         this.email = email;
-        this.contraseña = contraseña;
+        this.password = password;
         this.token = token; 
     }
 
-    constructor(id,nombre,email,contraseña,token){
+    /**
+     * 
+     * @param {int} id 
+     * @param {string} name 
+     * @param {string} email 
+     * @param {string} password 
+     * @param {string} token 
+     */
+    constructor(id,name,email,password,token){
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
         this.email = email;
-        this.contraseña = contraseña;
+        this.password = password;
         this.token = token; 
     }
 }
