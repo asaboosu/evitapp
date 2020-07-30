@@ -3,6 +3,10 @@ import ProductModel from '../Model/ProductModel'
 
 class productController extends CoreController {
 
+    constructor() {
+        this.loadModel(new ProductModel());
+    }
+
     getProductsByCat(category = "") {
         let resp = {
             result: false,

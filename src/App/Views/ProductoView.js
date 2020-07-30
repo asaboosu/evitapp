@@ -11,34 +11,20 @@ import Categoria from './Producto/Categoria';
 export default class ProductoView extends Component {
 
 
-    /**
-     * se define un array que contendra las categorias traidas desde otra clase(no lo borres)
-     */
-    state = {
-        categorias: []
-    };
-
-
-    componentDidMount () {
-        
-
-
-    }
-
-    render () {
+    render() {
         return (
             <BrowserRouter >
-                <Navegador categorias={ this.state.categorias }></Navegador>
+                <Navegador></Navegador>
 
                 <Switch>
                     <Route exact path="/producto/agregar">
-                        <Agregar categorias={ this.state.categorias }></Agregar>
+                        <Agregar ></Agregar>
                     </Route>
                     <Route exact path="/producto/buscar/:tipo/:query">
-                        <Buscar categorias={ this.state.categorias }></Buscar>
+                        <Buscar></Buscar>
                     </Route>
-                    <Route exact path={ "/producto/ver/:categoria" }>
-                        <Categoria categorias={ this.state.categorias }></Categoria>
+                    <Route exact path={"/producto/ver/:categoria"}>
+                        <Categoria></Categoria>
                     </Route>
                 </Switch>
             </BrowserRouter>

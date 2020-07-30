@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import { UserController } from '../Controller/UserController';
+import SessionController from '../Controller/SessionController';
 
 import Login from './Navegador/Login';
 
@@ -18,34 +18,32 @@ class NavegadorView extends Component {
     /**
      * se trae el estado del login desde el controlador
      */
-    componentDidMount () {
-        this.getLogin();
+    componentDidMount() {
+        this.getSession();
     }
 
-    getLogin = () => {
-        let login = UserController.getLogin();
-        this.setState( {
+    getSession = () => {
+        let login = SessionController.getSession();
+        this.setState({
             login
-        } );
+        });
     };
 
-    login = () => {
+    newSession = () => {
         swal(
             {
                 content:
-                    <Login
-                        eventLogin={ this.eventLogin }
-                    ></Login>, button: false
-            } );
+                    <Login></Login>, button: false
+            });
 
     };
 
-    Deslogin = () => {
-        UserController.deslogear();
-        window.location.pathname = "/";
+    delSession = () => {
+        SessionController.;
+        
     };
 
-    render () {
+    render() {
         return (
             <div className="container-fluid">
                 <div className="row bg-danger shadow-lg border border-dark">
@@ -56,14 +54,14 @@ class NavegadorView extends Component {
                     </div>
                     <div className="text-center col-md-7 col-sm-12 col-xs-12 my-auto">
                         <div>
-                            { ( this.props.location.pathname !== "/" ) &&
+                            {(this.props.location.pathname !== "/") &&
                                 <Link to="/" ><span className="btn btn-dark m-1"><h4>Inicio <span role="img" aria-labelledby="">🏠</span> </h4></span></Link>
                             }
-                            { !this.state.login &&
-                                <button className="btn btn-dark" onClick={ this.Login }><span ><h4>Logear</h4></span></button>
+                            {!this.state.login &&
+                                <button className="btn btn-dark" onClick={this.Login}><span ><h4>Logear</h4></span></button>
                             }
-                            { this.state.login &&
-                                <button className="btn btn-dark" onClick={ this.Deslogin }><span ><h4>Deslogear</h4></span></button>
+                            {this.state.login &&
+                                <button className="btn btn-dark" onClick={this.Deslogin}><span ><h4>Deslogear</h4></span></button>
                             }
                         </div>
                     </div>
@@ -73,4 +71,4 @@ class NavegadorView extends Component {
     }
 }
 
-export default withRouter( NavegadorView );
+export default withRouter(NavegadorView);

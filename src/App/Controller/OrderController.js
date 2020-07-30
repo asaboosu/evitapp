@@ -1,44 +1,45 @@
 import CoreController from '../../Core/CoreController';
+import OrderDto from '../Model/Dto/OrderDto';
 import OrderModel from '../Model/OrderModel';
 
 class orderController extends CoreController {
 
     constructor(){
-
+        this.loadModel(new OrderModel());
     }
 
     getOrderById(id) {
-        return OrderModel.getOrderById(id);
+        return true;
     }
 
     getOrderByCompleted() {
-        return OrderModel.getOrdersByType("completada");
+        return true;
 
     }
 
     getOrderByNotCompleted() {
-        return OrderModel.getOrdersByType("proceso");
+        return true;
     }
-T
+
     newOrder(products) {
         let Order = new OrderDto(products);
-        return OrderModel.addOrder(Order);
+        return true;
     }
 
     modOrder(newOrder, oldOrder) {
-        return OrderModel.modOrder(newOrder, oldOrder);
+        return true;
     }
 
     delOrder(idOrder) {
-        return OrderModel.delOrder(idOrder);
+        return true;
     }
 
     completeOrder(idOrder) {
-        return OrderModel.doneOrder();
+        return true;
     }
 
     doneOrder(idOrder) {
-        return OrderModel.doneOrder();
+        return true;
 
     }
 
