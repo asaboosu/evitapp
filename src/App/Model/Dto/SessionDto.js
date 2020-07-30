@@ -2,20 +2,25 @@ export default class SessionDto {
 
     id;
 
+    nombre;
+
+    email;
+
+    contraseña;
+
     token;
 
-    startTime;
-
-    constructor(id = "", token = "") {
-        this.nombre = nombre;
-        this.login = login;
+    constructor(email,contraseña, token){
+        this.email = email;
+        this.contraseña = contraseña;
+        this.token = token; 
     }
-    
-    constructor(id = "",startTime= "", token = "") {
+
+    constructor(id,nombre,email,contraseña,token){
+        this.id = id;
         this.nombre = nombre;
-        this.login = login;
+        this.email = email;
+        this.contraseña = contraseña;
+        this.token = token; 
     }
-    
-
-
 }

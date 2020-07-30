@@ -3,11 +3,26 @@ import SessionModel from '../Model/SessionModel';
 
 class sessionController extends CoreController {
 
-    constructor(){
-        this.loadModel(new SessionModel());  
+    constructor() {
+        this.loadModel(new SessionModel());
     }
 
-    
+    getLogin() {
+        let session = new SessionDto();
+        this.models.SessionModel.newSession(session){ }
+
+    }
+
+    delLogin() { }
+
+    newLogin() {
+
+    }
+
+
+
+
+
 
 }
 
