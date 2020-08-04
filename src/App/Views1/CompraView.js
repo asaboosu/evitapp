@@ -10,6 +10,7 @@ export default class CompraView extends Component {
     render () {
         return (
             <BrowserRouter>
+
                 <Switch>
                     <Route exact path="/compra" >
                     </Route>

@@ -1,4 +1,4 @@
-import CoreApi from "./CoreApi";
+import CoreApi from "./CoreModel/ApiBuilder";
 
 export default class CoreModel {
 

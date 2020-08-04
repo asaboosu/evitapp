@@ -4,19 +4,21 @@ import SessionModel from '../Model/SessionModel';
 class sessionController extends CoreController {
 
     constructor() {
-        this.loadModel(new SessionModel());
+       
     }
 
     getLogin() {
-        let session = new SessionDto();
-        this.models.SessionModel.newSession(session){ }
-
+        
+        
     }
 
-    delLogin() { }
+    delLogin() { 
+        
+    }
 
     newLogin() {
-
+       
+   
     }
 
 
@@ -26,4 +28,4 @@ class sessionController extends CoreController {
 
 }
 
-export let SesionController = new sessionController();
+export let SessionController = new sessionController();

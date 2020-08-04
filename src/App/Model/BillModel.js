@@ -8,7 +8,7 @@ export default class OrderModel extends CoreModel {
     }
 
     getBillsByDate(order){
-        this.api.addApiUrl("/order/date/" + order.date);
+        this.api.addApiUrl('/order/date/${order.date}');
         return this.api.get();
     }
 

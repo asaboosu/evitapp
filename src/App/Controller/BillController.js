@@ -8,7 +8,7 @@ class billController extends CoreController {
     }
 
     getBillById(id) {
-        return this.models.BillModel.getBillById(id);
+        let bills = this.models.BillModel.getBillById(id).json();
 
     }
 

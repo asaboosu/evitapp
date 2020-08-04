@@ -20,7 +20,7 @@ export default class CoreApi {
         }
     };
 
-    url = {...defaultUrl};    
+    url = { ...CoreApi.defaultUrl };
     /**
      * init actual del objeto
      */
@@ -40,6 +40,40 @@ export default class CoreApi {
     response = {};
 
     /**
+      * se limpia el objeto, preparandolo para otra peticion
+      */
+    __cleanObject() {
+        this.body = {};
+        this.apiUrl = { ...CoreApi.defaultUrl };
+        this.response = {};
+        this.init = { ...CoreApi.defaultInit };
+
+    }
+
+    /**
+     * el objeto ejecuta la peticion
+     */
+    __petition() {
+
+        this.response = fetch(this.url + this.apiUrl, this.init)
+            .then(res => {
+                if (300 > res.status >= 200) {
+                    res.json();
+
+                } else {
+                    return res.status;
+                }
+            })
+            .catch(error => console.error('Error' + error))
+            .then(response => {
+                return response;
+            });
+
+
+        return this.response;
+    }
+
+    /**
      * 
      * la uri de la query para la api
      * @param {string} apiUrl 
@@ -57,32 +91,7 @@ export default class CoreApi {
     }
 
 
-    /**
-     * se limpia el objeto, preparandolo para otra peticion
-     */
-    __cleanObject() {
-        this.body = {};
-        this.apiUrl = {...CoreApi.defaultUrl};
-        this.response = {};
-        this.init = { ...CoreApi.defaultInit };
 
-    }
-
-    /**
-     * el objeto ejecuta la peticion
-     */
-    __petition() {
-
-        this.response = fetch(this.url + this.apiUrl, this.init)
-            .then(res => res.json())
-            .catch(error => console.error('Error' + error))
-            .then(response => {
-                return response;
-            });
-
-
-        return this.response;
-    }
 
     get() {
         this.init = 'GET';

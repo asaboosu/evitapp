@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link, withRouter } from 'react-router-dom';
 
-import {SessionController} from '../Controller/SessionController';
+import SessionController from '../Controller/SessionController';
 
 import Login from './Navegador/Login';
 
@@ -19,8 +19,29 @@ class NavegadorView extends Component {
      * se trae el estado del login desde el controlador
      */
     componentDidMount() {
-        alert(SessionController.getSession());
+        this.getSession();
     }
+
+    getSession = () => {
+        let login = SessionController.getSession();
+        this.setState({
+            login
+        });
+    };
+
+    newSession = () => {
+        swal(
+            {
+                content:
+                    <Login></Login>, button: false
+            });
+
+    };
+
+    delSession = () => {
+        SessionController.;
+        
+    };
 
     render() {
         return (
